@@ -11,6 +11,10 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 
+
+# Load environment variables from .env file
+load_dotenv()
+
 # Database configuration from .env
 DB_CONFIG = {
     'host': os.getenv('DB_HOST'),
@@ -21,7 +25,7 @@ DB_CONFIG = {
 }
 
 # Path to JSON file
-JSON_FILE_PATH = os.getenv('JSON_FILE_PATH')
+JSON_FILE_PATH = os.getenv('CLEAN_JSON_DATA')
 
 def create_table(conn):
     """Create the spotify_streams table matching the JSON structure"""
