@@ -9,5 +9,5 @@ Welcome to my spotify research! This github page shows the process of me creatin
   - Your .env file should have a layout such as
 
     `INPUT_JSON_FOLDER="YOUR EXTRACTED FOLDER OF SPOTIFY JSON FILES"`
+    
     `CLEAN_JSON_DATA="FULL FILE OF OUTPUT JSON NAME. ex: /home/eric-saidnawey/ToolRepository/SpotifyResearch/actual_clean_data.json"` 
-   
