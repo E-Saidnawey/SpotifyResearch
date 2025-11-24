@@ -148,7 +148,7 @@ def verify_data(conn):
         
         # Check sample data
         cur.execute("""
-            SELECT track_name, artist_name, minutes_played, year
+            SELECT track_name, artist_name, minutes_played, date
             FROM spotify_streams 
             WHERE track_name IS NOT NULL 
             LIMIT 5;
@@ -171,7 +171,7 @@ def verify_data(conn):
         print(f"  Total records: {row[0]:,}")
         print(f"  With track name: {row[1]:,}")
         print(f"  With minutes played: {row[2]:,}")
-        print(f"  With year: {row[3]:,}")
+        print(f"  With date: {row[3]:,}")
 
 def main():
     """Main function to orchestrate the upload process"""
