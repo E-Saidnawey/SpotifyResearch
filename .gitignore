@@ -1,3 +1,4 @@
 .env
 AudioData/
 actual_clean_data.json
+*.pyc
