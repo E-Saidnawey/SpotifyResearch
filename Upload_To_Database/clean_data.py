@@ -79,13 +79,15 @@ def clean_and_organize(data):
     # Delete values from unwanted columns
     index = df['episode_name'].isna()
     df = df[index]
-    df = df.drop(columns=['ts', 'platform', 'ip_addr', 'audiobook_title', 'audiobook_uri', 'audiobook_chapter_uri', 'audiobook_chapter_title', 'episode_name', 'episode_show_name', 'spotify_track_uri', 'spotify_episode_uri', 'offline_timestamp', 'offline'])
+    df = df.drop(columns=['platform', 'ip_addr', 'audiobook_title', 'audiobook_uri', 'audiobook_chapter_uri', 'audiobook_chapter_title', 'episode_name', 'episode_show_name', 'spotify_track_uri', 'spotify_episode_uri', 'offline_timestamp', 'offline'])
     
     print(f"Cleaned data shape: {df.shape}")
     print(f"Total listening time: {df['minutes_played'].sum():.2f} minutes ({df['minutes_played'].sum()/60:.2f} hours)")
     return df
     
 def write_to_json(df):
+    df['date'] = df['date'].astype(str)
+    
     df.to_json(os.getenv('CLEAN_JSON_DATA'), orient='records', indent=4)
     
     print(f"DataFrame successfully written to {os.getenv('CLEAN_JSON_DATA')}")
