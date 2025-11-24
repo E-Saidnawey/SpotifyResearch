@@ -45,7 +45,7 @@ def get_artists():
     
     return {"Data": [row[0] for row in results]}
 
-# NEW: Top artists by listening time (with optional date filtering)
+# Top artists by listening time (with optional date filtering)
 @app.get("/api/artists/top")
 def get_top_artists(
     limit: int = Query(20, ge=1, le=100),
