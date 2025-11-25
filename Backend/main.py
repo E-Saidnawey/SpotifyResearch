@@ -12,7 +12,7 @@ app = FastAPI()
 # Add CORS middleware with environment-specific origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[os.getenv('ALLOWED_ORIGIN')],
     allow_credentials=True,
     allow_methods=["GET"],
     allow_headers=["Content-Type"],
